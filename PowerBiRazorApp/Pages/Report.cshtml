@@ -1,0 +1,29 @@
+﻿@page "{reportID}/{Name?}/{Role?}"
+@model ReportModel
+
+<h2>@Model.ReportDetail.Name</h2>
+<div id="desktopReport" class="embedded-report"> </div>
+
+@section Styles{
+    <link rel="stylesheet" href="~/custom/reportStyle.css" />
+}
+
+@section Scripts{
+    <script src="~/lib/powerbi/powerbi.min.js"></script>
+    <script type="text/javascript">
+        var models = window['powerbi-client'].models;
+
+        var config = {
+            type: "report",
+            id: '@Model.ReportDetail.ReportID',
+            accessToken: '@Model.ReportDetail.AccessToken',
+            embedUrl: '@Model.ReportDetail.EmbedUrl',
+            tokenType: 1,
+            settings: {
+            }
+        };
+
+        var reportContainer = document.getElementById("desktopReport");
+        powerbi.embed(reportContainer, config);
+    </script>
+}

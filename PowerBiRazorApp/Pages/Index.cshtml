@@ -1,0 +1,17 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="list-group">
+    <h1>Available Reports</h1>
+
+    <ul>
+        @foreach (var report in @Model.AvailableReports)
+        {
+            <li><a asp-page="/RowLevelSecurityTester" asp-route-reportID="@report.Id">@report.Name <span class="sr-only">(current)</span></a></li>
+        }
+    </ul>
+
+</div>
