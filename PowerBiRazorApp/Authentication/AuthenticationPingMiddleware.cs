@@ -14,13 +14,13 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace PowerBiRazorApp.Authentication
 {
-    public class AuthenticationMiddleware
+    public class AuthenticationPingMiddleware
     {
         private readonly RequestDelegate _next;
         private readonly IMemoryCache _cache;
 
 
-        public AuthenticationMiddleware(RequestDelegate next, IConfiguration configuration, IMemoryCache memoryCache)
+        public AuthenticationPingMiddleware(RequestDelegate next, IConfiguration configuration, IMemoryCache memoryCache)
         {
             _next = next;
             _cache = memoryCache;

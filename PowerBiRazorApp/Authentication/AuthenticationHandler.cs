@@ -46,7 +46,6 @@ namespace PowerBiRazorApp.Authentication.AuthenticationHandler
                  var authenticationResult = JsonConvert.DeserializeObject<OAuthResult>(content);
                  return (new TokenCredentials(authenticationResult.AccessToken, "Bearer"), authenticationResult.AccessToken);
              }
-            
         }
     }
 }

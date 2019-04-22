@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using PowerBiRazorApp.Authentication;
 using PowerBiRazorApp.Authentication.AuthenticationHandler;
 using PowerBiRazorApp.DataAccess;
 using PowerBiRazorApp.Models;
@@ -98,7 +99,7 @@ namespace PowerBiRazorApp
             app.UseSession();
 
             app.UseAuthentication();
-            app.UseMiddleware(typeof(AuthenticationMiddleware));
+            app.UseMiddleware(typeof(AuthenticationPingMiddleware));
 
             app.UseExceptionHandler(errorApp =>
             {
